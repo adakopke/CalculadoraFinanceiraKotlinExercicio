@@ -24,13 +24,14 @@ class MainActivity : AppCompatActivity() {
     botaoMenos.setOnClickListener {
         val anos = anosExibidos.text.toString()
         var anosInt = Integer.parseInt(anos)
-        if( anosInt != 0 ){
+        if( anosInt > 0 ) {
             anosInt--
             anosExibidos.text = anosInt.toString()
+
+            val valorInvestido = textValorExibir.text.toString()
+            val result = calculaValor(valorInvestido, anosInt)
+            textResultadoInvestimento.text = "$result"
         }
-        val valorInvestido  = textValorExibir.text.toString()
-        val result = calculaValor(valorInvestido, anosInt)
-        textResultadoInvestimento.text = "$result"
     }
 
     botaoMais.setOnClickListener {
